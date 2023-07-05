@@ -1,1 +1,0 @@
-/Users/Yanis/Documents/Programming/Mastering\ Rust/target/debug/hex_rgb_converter: /Users/Yanis/Documents/Programming/Mastering\ Rust/src/lib.rs /Users/Yanis/Documents/Programming/Mastering\ Rust/src/macros.rs /Users/Yanis/Documents/Programming/Mastering\ Rust/src/main.rs
