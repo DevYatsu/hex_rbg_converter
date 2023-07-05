@@ -67,6 +67,13 @@ pub struct RgbColor {
     b: u8,
 }
 
+pub enum Colors {
+    Red,
+    Green, 
+    Blue,
+    All
+}
+
 impl RgbColor {
     pub fn new(r: u8, g: u8, b: u8) -> Self {
         Self { r, g, b }
@@ -98,24 +105,17 @@ impl RgbColor {
         self.b = b;
         self
     }
-    pub fn set_color(&mut self, color: char, value: u8) -> &mut Self {
+    pub fn set_color(&mut self, color: Colors, value: u8) -> &mut Self {
         match color {
-            'r' => self.r = value,
-            'g' => self.g = value,
-            'b' => self.b = value,
-            'a' => {
+            Colors::Red => self.r = value,
+            Colors::Green => self.g = value,
+            Colors::Blue => self.b = value,
+            Colors::All => {
                 // 'a' for 'all'
                 self.r = value;
                 self.g = value;
                 self.b = value;
             }
-            _ => panic!(
-                "{}",
-                InvalidParameterError::InvalidColorError {
-                    at: format!("'set_color('{color}', {value})'")
-                }
-                .to_string()
-            ),
         };
         self
     }
