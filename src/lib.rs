@@ -68,10 +68,10 @@ pub struct RgbColor {
 }
 
 pub enum Colors {
-    Red,
-    Green, 
-    Blue,
-    All
+    Red(u8),
+    Green(u8), 
+    Blue(u8),
+    All(u8)
 }
 
 impl RgbColor {
@@ -105,12 +105,12 @@ impl RgbColor {
         self.b = b;
         self
     }
-    pub fn set_color(&mut self, color: Colors, value: u8) -> &mut Self {
+    pub fn set_color(&mut self, color: Colors) -> &mut Self {
         match color {
-            Colors::Red => self.r = value,
-            Colors::Green => self.g = value,
-            Colors::Blue => self.b = value,
-            Colors::All => {
+            Colors::Red(value) => self.r = value,
+            Colors::Green(value) => self.g = value,
+            Colors::Blue(value) => self.b = value,
+            Colors::All(value) => {
                 // 'a' for 'all'
                 self.r = value;
                 self.g = value;
