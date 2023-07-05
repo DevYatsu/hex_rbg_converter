@@ -119,8 +119,11 @@ impl RgbColor {
         };
         self
     }
+    fn tuple(&self) => (u8, u8, u8) {
+        (self.r, self.g, self.b)    
+    }
     pub fn are_equal(one_instance: &RgbColor, other_instance: &RgbColor) -> bool {
-        (one_instance.r, one_instance.g, one_instance.b) == (other_instance.r, other_instance.g, other_instance.b)
+        one_instance.tuple() == other_instance.tuple()
     }
 }
 
