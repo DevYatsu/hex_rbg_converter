@@ -68,8 +68,8 @@ rgb_col
     .set_blue(90)
     .set_green(90)
     .set_red(90)
-    .set_color('a', 120);
-// set all 3 colors to 120: 'a' like 'all'
+    .set_color(Colors::All, 120);
+// use Colors enum to choose the color (Reg,Green,Blue,All)
 //can also use 'r', 'g' and 'b'
 
 println!("RGB Color: {}", rgb_col);
