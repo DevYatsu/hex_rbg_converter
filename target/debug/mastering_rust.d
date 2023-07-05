@@ -1,0 +1,1 @@
+/Users/Yanis/Documents/Programming/Mastering\ Rust/target/debug/mastering_rust: /Users/Yanis/Documents/Programming/Mastering\ Rust/src/errors.rs /Users/Yanis/Documents/Programming/Mastering\ Rust/src/main.rs
