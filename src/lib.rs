@@ -20,7 +20,7 @@ pub struct Color;
 
 impl Color {
     pub fn hex(color: &str) -> HexColor {
-        HexColor::new(color).unwrap()
+        HexColor::new(color)
     }
     pub fn rgb(r: u8, g: u8, b: u8) -> RgbColor {
         RgbColor::new(r, g, b)
@@ -56,7 +56,7 @@ impl Color {
             "black" | _  => "000000",
         };
 
-        HexColor::new(&color).unwrap().into()
+        HexColor::new(&color)
     }
 }
 
@@ -77,7 +77,7 @@ impl RgbColor {
     pub fn to_hex(&self) -> HexColor {
         let color: &String = &self.get_hex_equivalent();
 
-        HexColor::new(&color).map_err(|e| e.to_string()).unwrap()
+        HexColor::new(&color)
     }
     pub fn is_equal(&self, other: &HexColor) -> bool {
         self.get_hex_equivalent() == other.color
@@ -119,7 +119,7 @@ impl RgbColor {
         };
         self
     }
-    pub fn are_equals(one_instance: &RgbColor, other_instance: &RgbColor) -> bool {
+    pub fn are_equal(one_instance: &RgbColor, other_instance: &RgbColor) -> bool {
         (one_instance.r, one_instance.g, one_instance.b) == (other_instance.r, other_instance.g, other_instance.b)
     }
 }
@@ -130,24 +130,24 @@ pub struct HexColor {
 }
 
 impl HexColor {
-    pub fn new(color: &str) -> Result<Self, String> {
+    pub fn new(color: &str) -> Self {
         let mut color: String = String::from(color);
 
         if color.starts_with("#") {
             color.remove(0);
         }
         if color.len() > 6 {
-            return Err(InitializationError::InvalidHex {
+            panic!("{}", InitializationError::InvalidHex {
                 at: format!("{}", color),
             }
-            .to_string());
+            .to_string())
         }
         for c in color.chars() {
             if !c.is_digit(16) {
-                return Err(InitializationError::InvalidHex {
+                panic!("{}", InitializationError::InvalidHex {
                     at: format!("{}", color),
                 }
-                .to_string());
+                .to_string())
             }
         }
 
@@ -157,7 +157,7 @@ impl HexColor {
 
         color = color.to_lowercase();
 
-        Ok(Self { color })
+        Self { color }
     }
     fn get_rgb_equivalent(&self) -> (u8, u8, u8) {
         let r = u8::from_str_radix(&self.color[0..2], 16)
@@ -183,7 +183,7 @@ impl HexColor {
     pub fn print(&self) {
         println!("#{}", self.color)
     }
-    pub fn are_equals(one_instance: &HexColor, other_instance: &HexColor) -> bool {
+    pub fn are_equal(one_instance: &HexColor, other_instance: &HexColor) -> bool {
         one_instance.color == other_instance.color
     }
 }

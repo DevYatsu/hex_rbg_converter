@@ -26,7 +26,7 @@ fn main() {
 
     rgb_2.to_hex().print();
 
-    println!("{}", RgbColor::are_equals(&rgb_col, &rgb_2));
+    println!("{}", RgbColor::are_equal(&rgb_col, &rgb_2));
 
     Color::by_name("orange").print();
 }
