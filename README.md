@@ -68,7 +68,7 @@ rgb_col
     .set_blue(90)
     .set_green(90)
     .set_red(90)
-    .set_color(Colors::All, 120);
+    .set_color(Colors::All(120));
 // use Colors enum to choose the color (Reg,Green,Blue,All)
 //can also use 'r', 'g' and 'b'
 
