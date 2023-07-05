@@ -17,7 +17,9 @@ The Color struct and macros are provided by the library to facilitate color conv
 
 Here are some examples of how you can use the Hex-RGB Converter:
 
-**Multiple Ways to Instantiate Colors**
+
+#### Multiple Ways to Instantiate Colors
+
 There are multiple ways to instantiate colors using the Hex-RGB Converter:
 
 ```rust
@@ -34,10 +36,12 @@ let rgb_3 = rgb!(1, 2, 3);
 let rgb_4 = color!(1, 2, 3);
 ```
 
-You can either or not add '#' add the start of the hex colors.
+You can either or not add '#' at the start of the hex colors.
 For simplicity purposes, we will be using macros to instantiate colors in the tutorial.
 
-**Convert Hex to RGB**
+
+#### Convert Hex to RGB
+
 To convert a color from hex format to RGB, you can use the color! macro followed by the hex value:
 
 ```rust
@@ -47,7 +51,9 @@ println!("Hex Color: {}", my_hex_color);
 println!("RGB Color: {}", my_color_in_rgb);
 ```
 
-**Convert RGB to Hex**
+
+#### Convert RGB to Hex
+
 To convert a color from RGB to hex format, you can use the hex! macro followed by the RGB values:
 
 ```rust
@@ -55,7 +61,9 @@ let test_color: HexColor = hex!("#12ef78").to_rgb().to_hex();
 test_color.print();
 ```
 
-**Manipulate RGB Colors**
+
+#### Manipulate RGB Colors
+
 You can also manipulate RGB colors using the provided methods. Here's an example:
 
 ```rust
@@ -72,7 +80,8 @@ println!("RGB Color: {}", rgb_col);
 println!("Hex Color: {}", rgb_col.to_hex());
 ```
 
-**Comparison and Equality**
+#### Comparison and Equality
+
 You can compare colors for equality using the `is_equal` method for different color formats and `RgbColor::are_equal` as well as `HexColor::are_equal` methods for the same format. Here's an example:
 
 ```rust
@@ -84,12 +93,15 @@ let other_hex: HexColor = hex!("ffffff");
 println!("Are hex_col and other_hex equal? {}", HexColor::are_equal(&hex_col, &other_hex)); // true here
 ```
 
-**Color by Name**
+
+#### Color by Name
+
 The Hex-RGB Converter also provides a convenient method to get the hex representation of a color by its name:
 
 ```rust
 Color::by_name("orange").print();
 ```
+
 
 ## Contributing
 
